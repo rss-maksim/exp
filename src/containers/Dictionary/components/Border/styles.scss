@@ -1,0 +1,79 @@
+@import '../../colors.scss';
+
+$size: 5px;
+$top: -$size;
+$offset: -14px;
+$width: 23px;
+
+.border {
+    position: absolute;
+    display: flex;
+    height: $size;
+    width: $width;
+
+    &.x2 {
+        width: 2 * $width;
+
+        .inner-space {
+            width: 60%;
+        }
+    }
+
+    &.bottom {
+        top: 100%;
+        &--left {
+            left: 7%;
+        }
+        &--right {
+            right: 7%;
+        }
+    }
+
+    &.top {
+        bottom: 100%;
+        right: 10%;
+    }
+    &.left {
+        left: $offset;
+        transform: rotate(90deg);
+        top: 25%;
+    }
+    &.right {
+        right: $offset;
+        transform: rotate(90deg);
+        top: 30%;
+    }
+    
+    .outer-space {
+        width: 100%;
+        background: $background;
+        display: flex;
+        justify-content: center;
+        align-items: center
+      }
+      
+    .inner-space {
+        height: 100%;
+        background: $border;
+        width: 50%;
+        border-radius: 35px;
+      }
+      
+    .circle-left,
+    .circle-right {
+        position: absolute;
+        left: 0;
+        transform: translateX(-50%);
+        width: $size;
+        height: 100%;
+        border-radius: 50%;
+        background: $border;
+        z-index: 1;
+      }
+      
+      .circle-right {
+        right: 0;
+        left: unset;
+        transform: translateX(50%);
+      }
+}
